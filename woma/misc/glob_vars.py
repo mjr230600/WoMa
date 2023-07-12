@@ -35,7 +35,7 @@ Di_mat_id = {
     "Til_basalt": Di_mat_type["Til"] * type_factor + 3,
     # Hubbard & MacFarlane (1980) Uranus/Neptune
     "HM80_HHe": Di_mat_type["HM80"] * type_factor,  # Hydrogen-helium atmosphere
-    "HM80_HHe_extended": Di_mat_type["HM80"] * type_factor + 0.5,  # Extended hydrogen-helium atmosphere
+    "HM80_HHe_extended": Di_mat_type["HM80"] * type_factor + 3,  # Extended hydrogen-helium atmosphere
     "HM80_ice": Di_mat_type["HM80"] * type_factor + 1,  # H20-CH4-NH3 ice mix
     "HM80_rock": Di_mat_type["HM80"] * type_factor + 2,  # SiO2-MgO-FeS-FeO rock mix
     # SESAME etc
