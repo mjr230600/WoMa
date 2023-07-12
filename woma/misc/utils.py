@@ -620,12 +620,14 @@ def load_eos_tables(A1_mat_input=None):
     # Load all tables (default) (except custom)
     if A1_mat_input is None:
         A1_mat = list(gv.Di_mat_id.keys())
+        for material in ["custom_%d" % i for i in range(5)]:
+            A1_mat.remove(material)
     elif not hasattr(A1_mat_input, "copy"):
         # Put a single input into a list
         A1_mat_input = [A1_mat_input]
         A1_mat = A1_mat_input.copy()
     else:
-        A1_mat = list(A1_mat_input.copy())
+        A1_mat = A1_mat_input.copy()
     # Discard idg materials
     A1_idg = []
     for material in A1_mat:
