@@ -758,8 +758,6 @@ def s_u_rho(u, rho, mat_id):
         s = idg.s_u_rho(u, rho, mat_id)
     elif mat_id==200:
         s = u # if HM80 HHe, set the entropy to be the internal energy
-    elif mat_id==203:
-        s = u # if HM80 HHe, set the entropy to be the internal energy
     elif mat_id==201:
         s = u # if HM80 ice, set the entropy to be the internal energy
     elif mat_id==102:
