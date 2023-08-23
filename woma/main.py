@@ -125,6 +125,7 @@ class Planet:
         A1_T_rho_type=None,
         P_s=None,
         T_s=None,
+        T_begin=None,
         rho_s=None,
         M=None,
         R=None,
@@ -150,6 +151,7 @@ class Planet:
         self.A1_T_rho_type = A1_T_rho_type
         self.P_s = P_s
         self.T_s = T_s
+        self.T_begin = T_begin
         self.rho_s = rho_s
         self.M = M
         self.R = R
@@ -373,6 +375,7 @@ class Planet:
         )
         print_try("    %s = %.5g  Pa", (utils.add_whitespace("P_s", space), self.P_s))
         print_try("    %s = %.5g  K", (utils.add_whitespace("T_s", space), self.T_s))
+        print_try("    %s = %.5g  K", (utils.add_whitespace("T_begin", space), self.T_begin))
         print_try(
             "    %s = %.5g  kg m^-3", (utils.add_whitespace("rho_s", space), self.rho_s)
         )
@@ -803,6 +806,7 @@ class Planet:
 
         self.rho_min = rho_min
         self.P_min = P_min
+        self.T_begin = T_begin
 
         # Make sure the profile arrays are ordered by increasing radius
         if self.A1_r[-1] < self.A1_r[0]:
