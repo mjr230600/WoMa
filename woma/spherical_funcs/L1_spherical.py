@@ -211,14 +211,14 @@ def L1_integrate_out(
             A1_mat_id.append(0)
             break
         # Update the T-rho parameters
-        if T_rho_type_id == gv.type_adb and (mat_id == gv.id_HM80_HHe or mat_id == gv.id_HM80_HHe_extended or mat_id == gv.id_idg_HHe):
-            T_rho_args = set_T_rho_args(
-                A1_T[-1],
-                A1_rho[-1],
-                T_rho_type_id,
-                T_rho_args,
-                mat_id,
-            )
+        # if T_rho_type_id == gv.type_adb and (mat_id == gv.id_HM80_HHe or mat_id == gv.id_HM80_HHe_extended or mat_id == gv.id_idg_HHe):
+        T_rho_args = set_T_rho_args(
+            A1_T[-1],
+            A1_rho[-1],
+            T_rho_type_id,
+            T_rho_args,
+            mat_id,
+        )
         rho = eos.find_rho(
             A1_P[-1],
             mat_id,
