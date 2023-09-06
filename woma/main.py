@@ -125,7 +125,7 @@ class Planet:
         A1_T_rho_type=None,
         P_s=None,
         T_s=None,
-        T_begin=None,
+        T_base=None,
         rho_s=None,
         M=None,
         R=None,
@@ -151,7 +151,7 @@ class Planet:
         self.A1_T_rho_type = A1_T_rho_type
         self.P_s = P_s
         self.T_s = T_s
-        self.T_begin = T_begin
+        self.T_base = T_base
         self.rho_s = rho_s
         self.M = M
         self.R = R
@@ -375,7 +375,7 @@ class Planet:
         )
         print_try("    %s = %.5g  Pa", (utils.add_whitespace("P_s", space), self.P_s))
         print_try("    %s = %.5g  K", (utils.add_whitespace("T_s", space), self.T_s))
-        print_try("    %s = %.5g  K", (utils.add_whitespace("T_begin", space), self.T_begin))
+        print_try("    %s = %.5g  K", (utils.add_whitespace("T_base", space), self.T_base))
         print_try(
             "    %s = %.5g  kg m^-3", (utils.add_whitespace("rho_s", space), self.rho_s)
         )
@@ -757,7 +757,7 @@ class Planet:
             self.print_info()
 
     def gen_prof_given_inner_prof(
-        self, mat, T_rho_type, rho_min=0, P_min=0, T_begin=None, verbosity=1
+        self, mat, T_rho_type, rho_min=0, P_min=0, T_base=None, verbosity=1
     ):
         """Add a new layer on top of existing profiles by integrating outwards.
 
@@ -806,7 +806,7 @@ class Planet:
 
         self.rho_min = rho_min
         self.P_min = P_min
-        self.T_begin = T_begin
+        self.T_base = T_base
 
         # Make sure the profile arrays are ordered by increasing radius
         if self.A1_r[-1] < self.A1_r[0]:
@@ -817,8 +817,8 @@ class Planet:
             self.A1_rho = self.A1_rho[::-1]
             self.A1_u = self.A1_u[::-1]
             self.A1_mat_id = self.A1_mat_id[::-1]
-        if T_begin == None:
-            T_begin = self.A1_T[-1]
+        if T_base == None:
+            T_base = self.A1_T[-1]
 
         # Integrate the profiles outwards
         (
@@ -834,7 +834,7 @@ class Planet:
             self.A1_r[1],
             self.A1_m_enc[-1],
             self.A1_P[-1],
-            T_begin,
+            T_base,
             self.A1_u[-1],
             self.A1_mat_id_layer[-1],
             self.A1_T_rho_type_id[-1],
