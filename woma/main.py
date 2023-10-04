@@ -2031,6 +2031,23 @@ class Planet:
     def gen_prof_L3_find_R_R1_R2_given_M1_M2_M3(self):  ### WIP
         return None
 
+    def calculate_entropies(self):
+        """
+        Calculate the particles' specific entropies from their densities and
+        internal energies.
+
+        Not available for all equations of state.
+
+        Currently requires all particles to be of materials that have entropy
+        implemented.
+
+        Set attributes
+        --------------
+        A1_s : [float]
+            The specific entropy of each particle (J K^-1 kg^-1).
+        """
+        self.A1_s = eos.A1_s_u_rho(self.A1_u, self.A1_rho, self.A1_mat_id)
+
 
 class SpinPlanet:
     """Create nested-spheroid profiles of a spinning body in equilibrium.
